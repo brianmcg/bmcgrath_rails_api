@@ -18,7 +18,7 @@ require "capistrano/passenger"
 require "capistrano/rbenv"
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.0.3'
+set :rbenv_ruby, '3.3.3'
 
 install_plugin Capistrano::SCM::Git
 
