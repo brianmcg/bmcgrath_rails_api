@@ -13,7 +13,9 @@ require "capistrano/deploy"
 # install_plugin Capistrano::SCM::Svn
 # or
 require "capistrano/scm/git"
-require "capistrano/rails"
+# require "capistrano/rails"
+# 	require 'capistrano/rails/assets'
+# 	capistrano/rails/migrations
 require "capistrano/passenger"
 require "capistrano/rbenv"
 
