@@ -3,8 +3,10 @@ lock "~> 3.18.1"
 
 set :application, "bmcgrath_api"
 set :repo_url, "git@github.com:brianmcg/bmcgrath_api.git"
+
 # Also works with non-github repos, I roll my own gitolite server
 set :deploy_to, "/home/bmcgrath/#{fetch :application}"
+
 # set :rbenv_prefix, '/usr/bin/rbenv exec' # Cf issue: https://github.com/capistrano/rbenv/issues/96
 set :rbenv_prefix, '/home/bmcgrath/.rbenv/bin/rbenv exec' # Cf issue: https://github.com/capistrano/rbenv/issues/96
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
@@ -40,7 +42,7 @@ set :branch, "main"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
