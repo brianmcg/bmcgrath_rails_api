@@ -5,17 +5,14 @@ class EmailsController < ApplicationController
 
   # POST /emails
   def create
-    api_key = "c282ddb00d4a003d89f4811f087abe03"
-    api_host = "send.api.mailtrap.io"
-
     mail = Mailtrap::Mail::Base.new(
-      from: { email: "mailtrap@bmcgrath.net", name: "bmcgrath" },
-      to: [{ email: "brian.joseph.mcgrath@gmail.com" }],
+      from: { email: ENV["MAILTRAP_SENDER"], name: "bmcgrath" },
+      to: [{ email: ENV["EMAIL_RECIPIENT"] }],
       subject: "Message from #{email_params[:name]} <#{email_params[:address]}>",
       text: email_params[:message]
     )
 
-    client = Mailtrap::Client.new(api_key: api_key, api_host: api_host)
+    client = Mailtrap::Client.new(api_key: ENV["MAILTRAP_TOKEN"], api_host: "send.api.mailtrap.io")
 
     response = client.send(mail)
 
