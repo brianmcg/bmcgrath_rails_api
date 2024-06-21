@@ -5,10 +5,10 @@ set :application, "bmcgrath_api"
 set :repo_url, "git@github.com:brianmcg/bmcgrath_api.git"
 
 # Also works with non-github repos, I roll my own gitolite server
-set :deploy_to, "/home/bmcgrath/#{fetch :application}"
+set :deploy_to, "/home/azureuser/#{fetch :application}"
 
 # set :rbenv_prefix, '/usr/bin/rbenv exec' # Cf issue: https://github.com/capistrano/rbenv/issues/96
-set :rbenv_prefix, '/home/bmcgrath/.rbenv/bin/rbenv exec' # Cf issue: https://github.com/capistrano/rbenv/issues/96
+set :rbenv_prefix, '/home/azureuser/.rbenv/bin/rbenv exec' # Cf issue: https://github.com/capistrano/rbenv/issues/96
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 set :branch, "main"
@@ -30,7 +30,7 @@ set :branch, "main"
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, 'config/master.key'
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor", "storage"

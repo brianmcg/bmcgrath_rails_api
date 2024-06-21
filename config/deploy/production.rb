@@ -9,7 +9,7 @@
 
 # server 'IP ADDRESS or DOMAIN', user: 'bmcgrath', roles: %w{app db web}
 # server '20.244.85.146', user: 'bmcgrath', roles: %w{app db web}
-server 'bmcgrath.centralindia.cloudapp.azure.com', user: 'bmcgrath', roles: %w{app db web}
+server 'bmcgrath.centralindia.cloudapp.azure.com', user: 'azureuser', roles: %w{app db web}
 
 # role-based syntax
 # ==================
