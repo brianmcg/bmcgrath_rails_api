@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.18.1"
 
-set :application, "bmcgrath_api"
-set :repo_url, "git@github.com:brianmcg/bmcgrath_api.git"
+set :application, "bmcgrath_rails_api"
+set :repo_url, "git@github.com:brianmcg/bmcgrath_rails_api.git"
 
 # set :rbenv_prefix, "/usr/bin/rbenv exec" # Cf issue: https://github.com/capistrano/rbenv/issues/96
 set :rbenv_prefix, "/home/azureuser/.rbenv/bin/rbenv exec" # Cf issue: https://github.com/capistrano/rbenv/issues/96
