@@ -26,11 +26,11 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'mailtrap'
+gem "mailtrap"
 
-gem 'net-ssh', '>= 6.0.2'
-gem 'ed25519', '>= 1.2', '< 2.0'
-gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+gem "net-ssh", ">= 6.0.2"
+gem "ed25519", ">= 1.2", "< 2.0"
+gem "bcrypt_pbkdf", ">= 1.0", "< 2.0"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
@@ -43,9 +43,9 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rbenv'
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem "capistrano-passenger"
+  gem "capistrano-rbenv"
 end
 
