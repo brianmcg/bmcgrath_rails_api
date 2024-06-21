@@ -3,6 +3,10 @@ class EmailsController < ApplicationController
     render json: { message: "success" }, status: :ok
   end
 
+  def get
+    render json: { message: "Server is up!" }, status: :ok
+  end
+
   # POST /emails
   def create
     mail = Mailtrap::Mail::Base.new(
