@@ -78,8 +78,7 @@ Rails.application.configure do
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
-  #   "bmcgrath.centralindia.cloudapp.azure.com",     # Allow requests from example.com
-  #   "20.244.85.146"
+  #   "example.com",     # Allow requests from example.com
   #   # /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
