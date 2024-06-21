@@ -1,31 +1,37 @@
 class EmailsController < ApplicationController
-  def index
-    render json: { message: "success" }, status: :ok
-  end
 
-  def get
-    render json: { message: "Server is up!" }, status: :ok
-  end
+  # POST /emails/send
+  def send_email
+    title = "Message from #{email_params[:name]}"
+    reply = "Reply to #{email_params[:address]}"
+    paragraphs = email_params[:message].split("\n").reject(&:empty?)
 
-  # POST /emails
-  def create
     mail = Mailtrap::Mail::Base.new(
-      from: { email: ENV["MAILTRAP_SENDER"], name: "bmcgrath" },
-      to: [{ email: ENV["EMAIL_RECIPIENT"] }],
-      subject: "Message from #{email_params[:name]} <#{email_params[:address]}>",
-      text: email_params[:message]
+      from: { email: credentials.mailtrap_sender, name: 'Mailtrap 📧' },
+      to: [{ email: credentials.email_recipient }],
+      subject: "Mailtrap message from #{email_params[:name]}",
+      text: "#{email_params[:message]}\n#{reply}",
+      html: "
+        <h1>#{title}</h1>
+        #{paragraphs.map { |p| "<p>#{p}</p>" }.join('')}
+        <h4>#{reply}</4>
+      "
     )
 
-    client = Mailtrap::Client.new(api_key: ENV["MAILTRAP_TOKEN"], api_host: "send.api.mailtrap.io")
+    client = Mailtrap::Client.new(api_key: credentials.mailtrap_token, api_host: 'send.api.mailtrap.io')
 
     response = client.send(mail)
 
-    render json: response, status: :created
+    render json: { id: response[:message_ids].first }, status: :ok
   end
 
   private
 
   def email_params
     params.require(:email).permit(:name, :address, :message)
+  end
+
+  def credentials
+    Rails.application.credentials
   end
 end
