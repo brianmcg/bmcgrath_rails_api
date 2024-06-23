@@ -13,7 +13,7 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 set :branch, "main"
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/azureuser/#{fetch :application}"
+set :deploy_to, "/home/azureuser/apps/#{fetch :application}"
 
 # Default value for :linked_files is []
 append :linked_files, "config/master.key"
