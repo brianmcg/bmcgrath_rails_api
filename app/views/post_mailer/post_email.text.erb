@@ -1,0 +1,7 @@
+<%= @title %>
+<%= Array.new(@title.size).map { '-' }.join('') %>
+<% @paragraphs.each do |p| %>
+<%= p %>
+<% end %>
+<%= Array.new(@title.size).map { '-' }.join('') %>
+<%= @reply %>
